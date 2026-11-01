@@ -3,7 +3,7 @@ import { Client } from "https://cdn.jsdelivr.net/npm/colyseus.js@0.16.19/+esm";
 const $ = id => document.getElementById(id);
 const serverInput = new URLSearchParams(location.search).get("server");
 const defaultEndpoint = location.protocol === "https:" ? `wss://${location.host}` : `ws://${location.hostname || "localhost"}:2567`;
-const endpoint = serverInput || defaultEndpoint;
+const endpoint = serverInput || "wss://survival-ascension.onrender.com";
 const client = new Client(endpoint);
 let room = null, myId = "", state = null, keys = {}, lastInput = 0, lastShoot = 0, dashReady = true, paused = false;
 const canvas = $("arena"), ctx = canvas.getContext("2d"), W = canvas.width, H = canvas.height;
